@@ -14,7 +14,7 @@
 // console.log('pagina non ready');
 
 /* todo:
-- keypress non funziona, perchè?
+- keypress non funziona
 
 */
 
@@ -36,6 +36,7 @@ $(document).ready(function(){
       // Vai indietro solo se non prima immagine
       if(!classList.includes('first')){
           $('.images .active').removeClass('active').prev().addClass('active');
+          $('.nav .active').removeClass('active').prev().addClass('active');
       }
     }
 
@@ -44,6 +45,7 @@ $(document).ready(function(){
       // Vai indietro solo se non ultima immagine
       if(!classList.includes('last')){
           $('.images .active').removeClass('active').next().addClass('active');
+          $('.nav .active').removeClass('active').next().addClass('active');
       }
     }
 
@@ -57,6 +59,7 @@ $(document).ready(function(){
       // Vai indietro solo se non prima immagine
       if(!classListPrev.includes('first')){
           $('.images .active').removeClass('active').prev().addClass('active');
+          $('.nav .active').removeClass('active').prev().addClass('active');
       }
 
 
@@ -71,9 +74,27 @@ $(document).ready(function(){
       // Vai indietro solo se non ultima immagine
       if(!classListNext.includes('last')){
           $('.images .active').removeClass('active').next().addClass('active');
+          $('.nav .active').removeClass('active').next().addClass('active');
       }
 
   });
 
+
+  // BONUS ---------------------------------------------------------------------
+  // Click su Bottone
+  // - mostra immagine
+  // - anima bottone con classe active
+
+  // $('.fas').click(function(){
+  //   $(this).addClass('active');
+  // });
+
+
+
+  // Animazione bottone segue immagine selezionata tramite tastiera o mouse
+
+
+
+  // /BONUS --------------------------------------------------------------------
 
 });

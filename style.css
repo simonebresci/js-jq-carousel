@@ -22,7 +22,7 @@
 }
 .slider-wrapper .images img {
     display: none;
-    height: 100%;
+    width: 90%; /*Modificato height in width, 100% in 80% */
 }
 .slider-wrapper .images img.active {
     display: inline-block;
