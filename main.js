@@ -21,23 +21,29 @@
 // ****************************************************************************
 
 $(document).ready(function(){
-  console.log('pagina caricata');
-
 
   // Bottone sx - carica immagine precedente
   $('.prev').click(function(){
       // Controlla se raggiunto limite sinistro
-      $('.images .active').removeClass('active').prev().addClass('active');
+      var classListPrev = $('.images .active').attr('class');
+
+      // Vai indietro solo se non prima immagine
+      if(!classListPrev.includes('first')){
+          $('.images .active').removeClass('active').prev().addClass('active');
+      }
   });
 
 
   // Bottone dx - carica immagine successiva
   $('.next').click(function(){
-      $('.images .active').removeClass('active').next().addClass('active');
+      // Controlla se raggiunto limite destro
+      var classListNext = $('.images .active').attr('class');
+
+      // Vai indietro solo se non ultima immagine
+      if(!classListNext.includes('last')){
+          $('.images .active').removeClass('active').next().addClass('active');
+      }
+
   });
-
-
-  // Controlla se raggiunto limite destro
-
 
 });
