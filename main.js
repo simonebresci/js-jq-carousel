@@ -13,6 +13,10 @@
 // Esegui codice JQuery al termine del caricamento della pagina
 // console.log('pagina non ready');
 
+/* todo:
+- keypress non funziona, perchè?
+
+*/
 
 // FUNZIONI *******************************************************************
 
@@ -21,6 +25,29 @@
 // ****************************************************************************
 
 $(document).ready(function(){
+
+  // Scorrimento slider con tastiera
+  $(document).keyup(function (event){
+    // Salva lista classi dell'elemento attuale
+    var classList = $('.images .active').attr('class');
+
+    // Freccia sinistra premuta da tastieras
+    if(event.key === 'ArrowLeft'){
+      // Vai indietro solo se non prima immagine
+      if(!classList.includes('first')){
+          $('.images .active').removeClass('active').prev().addClass('active');
+      }
+    }
+
+    // Freccia destra premuta da tastiera
+    if(event.key === 'ArrowRight'){
+      // Vai indietro solo se non ultima immagine
+      if(!classList.includes('last')){
+          $('.images .active').removeClass('active').next().addClass('active');
+      }
+    }
+
+  });
 
   // Bottone sx - carica immagine precedente
   $('.prev').click(function(){
@@ -31,7 +58,11 @@ $(document).ready(function(){
       if(!classListPrev.includes('first')){
           $('.images .active').removeClass('active').prev().addClass('active');
       }
+
+
   });
+
+
 
 
   // Bottone dx - carica immagine successiva
