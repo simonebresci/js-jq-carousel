@@ -56,3 +56,14 @@
 .nav > i.active {
     color: blue;
 }
+
+
+/* DEBUGG CUSTOM */
+.red{
+  color:red;
+  background-color: white;
+}
+
+.border-red{
+  border: 1px solid red;
+}
