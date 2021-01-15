@@ -29,12 +29,12 @@ $(document).ready(function(){
   // Scorrimento slider con tastiera
   $(document).keyup(function (event){
     // Salva lista classi dell'elemento attuale
-    var classList = $('.images .active').attr('class');
+    // var classList = $('.images .active').attr('class');
 
     // Freccia sinistra premuta da tastieras
     if(event.key === 'ArrowLeft'){
       // Vai indietro solo se non prima immagine
-      if(!classList.includes('first')){
+      if(!$('.images .active').hasClass('first')){
           $('.images .active').removeClass('active').prev().addClass('active');
           $('.nav .active').removeClass('active').prev().addClass('active');
       }
@@ -43,7 +43,7 @@ $(document).ready(function(){
     // Freccia destra premuta da tastiera
     if(event.key === 'ArrowRight'){
       // Vai indietro solo se non ultima immagine
-      if(!classList.includes('last')){
+      if(!$('.images .active').hasClass('last')){
           $('.images .active').removeClass('active').next().addClass('active');
           $('.nav .active').removeClass('active').next().addClass('active');
       }
@@ -54,10 +54,10 @@ $(document).ready(function(){
   // Bottone sx - carica immagine precedente
   $('.prev').click(function(){
       // Controlla se raggiunto limite sinistro
-      var classListPrev = $('.images .active').attr('class');
+      // var classListPrev = $('.images .active').attr('class');
 
       // Vai indietro solo se non prima immagine
-      if(!classListPrev.includes('first')){
+      if(!$('.images .active').hasClass('first')){
           $('.images .active').removeClass('active').prev().addClass('active');
           $('.nav .active').removeClass('active').prev().addClass('active');
       }
@@ -72,7 +72,7 @@ $(document).ready(function(){
       var classListNext = $('.images .active').attr('class');
 
       // Vai indietro solo se non ultima immagine
-      if(!classListNext.includes('last')){
+      if(!$('.images .active').hasClass('last')){
           $('.images .active').removeClass('active').next().addClass('active');
           $('.nav .active').removeClass('active').next().addClass('active');
       }
@@ -80,18 +80,27 @@ $(document).ready(function(){
   });
 
 
+
+
   // BONUS ---------------------------------------------------------------------
   // Click su Bottone
-  // - mostra immagine
-  // - anima bottone con classe active
+  $('.nav .fas').click(function(){
+    //rimuovi classe active a tutti i bottoni
+    $('.nav .fas').removeClass('active');
+    $(this).addClass('active');
 
-  // $('.fas').click(function(){
-  //   $(this).addClass('active');
-  // });
+    // Salva indice bottone cliccato
+    var index = $('.nav .fas').index(this) + 1;
+
+    // Mostra immagine corretta con nth-child
+    $('.images img').removeClass('active');
+    $('.images img:nth-child(' + index  + ')').addClass('active');
+
+
+  });
 
 
 
-  // Animazione bottone segue immagine selezionata tramite tastiera o mouse
 
 
 
